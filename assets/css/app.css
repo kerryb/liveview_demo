@@ -1,3 +1,28 @@
 /* This file is for your main application css. */
 
 @import "./phoenix.css";
+
+.counter {
+  display: inline-block;
+  width: 3em;
+  height: 3em;
+  line-height: 3em;
+  margin: 0.5em;
+  color: white;
+  font-size: 18pt;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 1.5em;
+}
+
+.ok {
+  background-color: green;
+}
+
+.warning {
+  background-color: orange;
+}
+
+.danger {
+  background-color: red;
+}
