@@ -9,9 +9,9 @@ defmodule LiveviewDemo.Application do
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
-      LiveviewDemoWeb.Endpoint
+      LiveviewDemoWeb.Endpoint,
       # Starts a worker by calling: LiveviewDemo.Worker.start_link(arg)
-      # {LiveviewDemo.Worker, arg},
+      {LiveviewDemo.Counters, 100}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
