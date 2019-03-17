@@ -2,7 +2,14 @@ defmodule LiveviewDemoWeb.CountersView do
   use Phoenix.LiveView
 
   def mount(_session, socket) do
-    {:ok, assign(socket, counters: LiveviewDemo.Counters.all())}
+    socket = assign(socket, counters: LiveviewDemo.Counters.all())
+
+    if connected?(socket) do
+      pid = self()
+      LiveviewDemo.Counters.subscribe(fn counters -> send(pid, {:update, counters}) end)
+    end
+
+    {:ok, socket}
   end
 
   def render(assigns) do
@@ -11,6 +18,10 @@ defmodule LiveviewDemoWeb.CountersView do
       <div class="counter <%= status_class(n) %>"><%= n %></div>
     <% end %>
     """
+  end
+
+  def handle_info({:update, counters}, socket) do
+    {:noreply, update(socket, :counters, fn _ -> counters end)}
   end
 
   def status_class(n) when n < 50, do: "ok"
