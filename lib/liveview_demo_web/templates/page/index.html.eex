@@ -1,3 +1,0 @@
-<%= for n <- @counters do %>
-  <div class="counter <%= status_class(n) %>"><%= n %></div>
-<% end %>
