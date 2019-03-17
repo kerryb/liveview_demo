@@ -52,8 +52,9 @@ config :liveview_demo, LiveviewDemoWeb.Endpoint,
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{lib/liveview_demo_web/views/.*(ex)$},
-      ~r{lib/liveview_demo_web/templates/.*(eex)$}
-    ]
+      ~r{lib/liveview_demo_web/templates/.*(eex)$},
+      ~r{lib/demo_web/live/.*(ex)$}
+    ],
   ]
 
 # Do not include metadata nor timestamps in development logs
