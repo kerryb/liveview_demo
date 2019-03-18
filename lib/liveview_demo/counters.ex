@@ -43,7 +43,7 @@ defmodule LiveviewDemo.Counters do
   end
 
   defp maybe_change(counter) do
-    (counter + Enum.random(-11..10) / 10) |> round() |> max(0) |> min(100)
+    (counter + :random.uniform() * 2 - 1) |> round() |> max(0) |> min(100)
   end
 
   defp notify(subscribers, counters) do
